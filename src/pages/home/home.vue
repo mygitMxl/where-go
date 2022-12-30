@@ -2,16 +2,17 @@
   <div>
     <Header></Header>
     <Swiper></Swiper>
-    <div>你好</div>
+    <Icoons></Icoons>
   </div>
 </template>
 
 <script>
 import Header from './components/Header.vue'
 import Swiper from './components/Swiper.vue'
+import Icoons from './components/icoons.vue'
 export default {
 name:'v-home',
-components:{Header,Swiper}
+components:{Header,Swiper,Icoons}
 }
 </script>
 

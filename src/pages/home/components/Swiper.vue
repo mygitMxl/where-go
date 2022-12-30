@@ -1,6 +1,6 @@
 <template>
     <div class="wraper">
-        <swiper :option="swiperOption">
+     <swiper :option="swiperOption">
     <swiper-slide v-for="item in swiperList" :key="item.id">
           <img :src='item.imgUrl' alt="">
     </swiper-slide>
@@ -39,5 +39,8 @@ data(){
  }
  .swiper-pagination{
     background-color: aqua;
+ }
+ img{
+    width: 100%;
  }
 </style>
