@@ -2,13 +2,13 @@
     <div>
         <div class="recomend-title">周末去哪</div>
         <ul >
-            <li class="item" v-for="item in recommendList" :key="item.id">
+            <li class="item border-bottom" v-for="item in list" :key="item.id">
                <div class='item-img-wraper'>
                 <img class="item-img" :src="item.imgUrl" alt="">
                </div>
                 <div class="item-info">
-                    <p class="item-title">{{item.title}}11111111111111111111111111111111111</p>
-                    <p class="item-desc">{{item.desc}}22222222222222222222222222222222</p>
+                    <p class="item-title">{{item.title}}</p>
+                    <p class="item-desc">{{item.desc}}</p>
                 </div>
             </li>
         </ul>
@@ -18,21 +18,9 @@
 <script>
 export default {
     name: 'v-weekend',
-    data(){
-        return{
-            recommendList:[
-                {
-                    id:'0001',
-                    imgUrl:'//imgs.qunarzz.com/p/p67/1512/a2/0ebfcd965b9391f7.jpg_256x160_04d5813d.jpg',
-                    title:'1',
-                    desc:'2'
-                }    
-            ]
-        } 
-    }
+   props:{list:Array}
 }
 </script>
-
 <style scoped>
 .recomend-title {
     margin: .2rem 0 0 0;
@@ -86,5 +74,8 @@ export default {
     border-radius: .06rem;
     margin-top: 0.3rem;
     padding: 0 .2rem;
+}
+.border-bottom{
+    margin-bottom: 2rem;
 }
 </style>

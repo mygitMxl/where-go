@@ -8,7 +8,7 @@
     请输入城市/景点/游玩主题
     </div>
     <div class="header-right">
-        <span>成市</span>
+      <span>{{ city }}</span>
     <span class="iconfont arrow-icon">&#xe62d;</span>
     </div>
 </div>
@@ -16,10 +16,10 @@
 
 <script>
 export default {
-name:'v-header'
+name:'v-header',
+props:{city:String}
 }
 </script>
-
 <style scoped>
   .header{
     background-color:#00bcd4;

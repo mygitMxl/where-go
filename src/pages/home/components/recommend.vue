@@ -2,7 +2,7 @@
     <div>
         <div class="recomend-title">热销推荐</div>
         <ul >
-            <li class="item" v-for="item in recommendList" :key="item.id">
+            <li class="item" v-for="item in list" :key="item.id">
                 <img class="item-img" :src="item.imgUrl"
                     alt="">
                 <div class="item-info">
@@ -18,18 +18,7 @@
 <script>
 export default {
     name: 'v-recommend',
-    data(){
-        return{
-            recommendList:[
-                {
-                    id:'0001',
-                    imgUrl:'//imgs.qunarzz.com/p/p67/1512/a2/0ebfcd965b9391f7.jpg_256x160_04d5813d.jpg',
-                    title:'1',
-                    desc:'2'
-                }    
-            ]
-        } 
-    }
+    props:{list:Array},
 }
 </script>
 

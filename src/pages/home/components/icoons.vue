@@ -1,50 +1,28 @@
 <template>
   <div class="icons">
-    <swiper :option="swiperOption">
-    <swiper-slide v-for="(page,index) of pages" :key="index">
+    <swiper >
+    <swiper-slide v-for="(page,index) in pages" :key="index">
     <div class="icon" v-for="item in page" :key="item.id">
         <div class="icon-img">
             <img class="icon-imgcontent" :src="item.imgUrl" alt="">
-            <p class="icon-des">{{item.desd}}</p>
+            <p class="icon-des">{{item.desc}}</p>
         </div>
     </div>
     </swiper-slide>
 </swiper>
   </div>
-  
 </template>
-
 <script>
 export default {
 name:'v-icoons',
+props:{list:Array},
  data(){
-    return{
-        swiperOption:{
-            autoplay:false
-        },
-        iconList:[
-            {
-                id:'0001',
-                imgUrl:'//s.qunarzz.com/homenode/images/touchheader/hotel.png',
-                desd:'景点门票'
-            },
-            {
-                id:'0002',
-                imgUrl:'//s.qunarzz.com/homenode/images/touchheader/flight.png',
-                desd:'景点门票'
-            },
-            {
-                id:'0003',
-                imgUrl:'//s.qunarzz.com/homenode/images/touchheader/train.png',
-                desd:'景点门票'
-            },
-        ]
-    }
+
  },
  computed: {
     pages () {
       const pages = []
-      this.iconList.forEach((item, index) => {
+      this.list.forEach((item, index) => {
         const page = Math.floor(index / 8)
         if (!pages[page]) {
           pages[page] = []
@@ -59,7 +37,7 @@ name:'v-icoons',
 
 <style scoped>
  .icons{
-  margin-top: 1rem;
+  margin-top: .5rem;
  }
  .icons .icon{
     position: relative;
