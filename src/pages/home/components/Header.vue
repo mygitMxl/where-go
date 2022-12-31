@@ -8,7 +8,7 @@
     请输入城市/景点/游玩主题
     </div>
     <div class="header-right">
-      <span>{{ city }}</span>
+      <span @click="goCity">{{ city }}</span>
     <span class="iconfont arrow-icon">&#xe62d;</span>
     </div>
 </div>
@@ -17,7 +17,12 @@
 <script>
 export default {
 name:'v-header',
-props:{city:String}
+props:{city:String},
+methods:{
+  goCity(){
+    this.$router.push('/city')
+  }
+}
 }
 </script>
 <style scoped>

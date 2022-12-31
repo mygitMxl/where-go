@@ -2,7 +2,7 @@
     <div>
         <div class="recomend-title">热销推荐</div>
         <ul >
-            <li class="item" v-for="item in list" :key="item.id">
+            <li class="item" v-for="item of list" :key="item.id">
                 <img class="item-img" :src="item.imgUrl"
                     alt="">
                 <div class="item-info">

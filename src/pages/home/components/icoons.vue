@@ -1,7 +1,7 @@
 <template>
   <div class="icons">
     <swiper >
-    <swiper-slide v-for="(page,index) in pages" :key="index">
+    <swiper-slide v-for="(page,index) of pages" :key="index">
     <div class="icon" v-for="item in page" :key="item.id">
         <div class="icon-img">
             <img class="icon-imgcontent" :src="item.imgUrl" alt="">
@@ -16,9 +16,7 @@
 export default {
 name:'v-icoons',
 props:{list:Array},
- data(){
 
- },
  computed: {
     pages () {
       const pages = []
