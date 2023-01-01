@@ -15,10 +15,10 @@
                     <div class="button">{{ item.name}}</div>
                 </div>
             </div>
-            <div class="area" v-for=" (item,key) in cities" :key="key">
+            <div class="area" v-for=" (item,key) in cities" :key="key" :ref="key">
                 <div class="title">{{ key }}</div>
-                <div class="item-list">
-                    <div class="item" v-for=" data in item" :key="data.id">{{data.name}}</div>
+                <div class="item-list" >
+                    <div class="item" v-for=" data in item" :key="data.id" >{{data.name}}</div>
                 </div>
             </div>
         </div>
@@ -31,11 +31,27 @@ export default {
     name: 'v-List',
     props:{
         cities:Object,
-        hot:Array
+        hot:Array,
+        letter:String
+    },
+    watch:{
+        letter(){/* 监听letter变化 */
+          if(this.letter){
+            const element=this.$refs[this.letter][0]
+            console.log(element);
+            this.scroll.scrollToElement(element)
+          }
+       }
+    }
+    ,
+    methods:{
+        hacnle(){
+            console.log(this.letter);
+        }
     },
     mounted(){
         this.scroll=new Bscroll(this.$refs.wrapper)
-        console.log(this.hot);
+      
     }
 
 }

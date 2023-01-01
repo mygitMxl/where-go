@@ -3,7 +3,7 @@
         <Header></Header>
         <Search :cities="cities"></Search>
         <List :cities="cities" :hot="hotCities" :letter="letter"></List>
-        <Alphabet :cities="cities"></Alphabet>
+        <Alphabet :cities="cities" @change="handleLetterChage"></Alphabet>
     </div>
 </template>
 
@@ -24,6 +24,11 @@ export default {
         }
     }
     ,
+    methods:{
+        handleLetterChage(letter){
+         this.letter=letter
+        }
+    },
     mounted() {
         axios.get('https://www.fastmock.site/mock/38dfa39bc0c9589ddba42d007a5a14cd/where/city')
             .then(res => {
@@ -39,7 +44,5 @@ export default {
     }
 }
 </script>
-
 <style>
-
 </style>
