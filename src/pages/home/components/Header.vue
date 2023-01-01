@@ -7,8 +7,8 @@
     <span class="iconfont">&#xe8b9;</span>
     请输入城市/景点/游玩主题
     </div>
-    <div class="header-right">
-      <span @click="goCity">{{ city }}</span>
+    <div class="header-right"  @click="goCity">
+      <span>{{ city }}</span>
     <span class="iconfont arrow-icon">&#xe62d;</span>
     </div>
 </div>
@@ -17,10 +17,14 @@
 <script>
 export default {
 name:'v-header',
-props:{city:String},
 methods:{
   goCity(){
     this.$router.push('/city')
+  }
+},
+computed:{
+  city(){
+    return this.$store.getters.doubleCity
   }
 }
 }

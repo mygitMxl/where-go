@@ -5,20 +5,20 @@
                 <div class="title">当前城市</div>
                 <div class="buttonList">
                     <div class="buttonWraper">
-                        <div class="button">北京</div>
+                        <div class="button" >{{nowcity}}</div>
                     </div>
                 </div>
             </div>
             <div class="title">热门城市</div>
             <div class="buttonList">
-                <div class="buttonWraper" v-for="item of hot" :key="item.id">
-                    <div class="button">{{ item.name}}</div>
+                <div class="buttonWraper" v-for="item of hot" :key="item.id" @click="hotcity(item.name)" >
+                    <div class="button" >{{ item.name}}</div>
                 </div>
             </div>
-            <div class="area" v-for=" (item,key) in cities" :key="key" :ref="key">
+            <div class="area" v-for=" (item,key) in cities" :key="key" :ref="key" >
                 <div class="title">{{ key }}</div>
                 <div class="item-list" >
-                    <div class="item" v-for=" data in item" :key="data.id" >{{data.name}}</div>
+                    <div class="item" v-for=" data in item" :key="data.id"  @click="hotcity(data.name)" >{{data.name}}</div>
                 </div>
             </div>
         </div>
@@ -45,15 +45,23 @@ export default {
     }
     ,
     methods:{
+        hotcity(name){
+          this.$store.dispatch('citys',name)
+          this.$router.push('/')
+        },
         hacnle(){
             console.log(this.letter);
-        }
+        },
     },
     mounted(){
         this.scroll=new Bscroll(this.$refs.wrapper)
       
+    },
+    computed:{
+        nowcity(){
+            return this.$store.state.city.city
+        }
     }
-
 }
 </script>
 

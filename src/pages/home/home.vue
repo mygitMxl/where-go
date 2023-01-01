@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Header :city="City"></Header>
+    <Header></Header>
     <Swiper :list="swiperList"></Swiper>
     <Icoons :list="iconList"></Icoons>
     <Recommend :list="recommendList"></Recommend>
@@ -19,7 +19,6 @@ name:'v-home',
 components:{Header,Swiper,Icoons,Recommend,Weekend},
 data(){
   return{
-     City:'',
      swiperList:[],
      iconList: [],
      recommendList:[],
@@ -33,7 +32,6 @@ methods:{
     res = res.data
      if(res.ret&&res.data){
       const data=res.data
-      this.City=data.city
       this.swiperList=data.swiperList
       this.iconList=data.iconList
       this.recommendList = data.recommendList

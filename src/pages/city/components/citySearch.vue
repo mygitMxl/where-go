@@ -5,7 +5,7 @@
   </div>
   <div class="search-content"   ref="search" v-show="keyword">
     <ul>
-      <li v-for="item in list" :key="item.id" class="search-item" >
+      <li v-for="item in list" :key="item.id" class="search-item" @click="changecity( item.name )">
        {{ item.name }}
       </li>
       <li class="search-item" v-show="hasNoData">没有找到匹配的数据</li>
@@ -33,6 +33,12 @@ computed:{
   hasNoData(){
     return ! this.list.length
   }
+},
+methods:{
+  changecity(name){
+  this.$store.dispatch('citys',name)
+  this.$router.push('/')
+  } 
 },
 watch:{
   keyword(){
