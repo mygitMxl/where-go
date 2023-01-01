@@ -24,7 +24,7 @@ methods:{
 },
 computed:{
   city(){
-    return this.$store.getters.doubleCity
+    return this.$store.state.city.city
   }
 }
 }

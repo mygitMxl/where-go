@@ -19,6 +19,8 @@ name:'v-home',
 components:{Header,Swiper,Icoons,Recommend,Weekend},
 data(){
   return{
+     lastCity: '',
+     city:this.$store.state.city.city,
      swiperList:[],
      iconList: [],
      recommendList:[],
@@ -27,7 +29,14 @@ data(){
 },
 methods:{
   getHomeInfo(){
-   axios.get('https://www.fastmock.site/mock/38dfa39bc0c9589ddba42d007a5a14cd/where/home')
+   axios({
+    url:'https://www.fastmock.site/mock/38dfa39bc0c9589ddba42d007a5a14cd/where/home',
+    data:{
+      params:{
+        city:this.city
+      }
+    }
+   })
    .then(res=>{
     res = res.data
      if(res.ret&&res.data){
@@ -40,8 +49,19 @@ methods:{
    })
   }
 },
+computed:{
+   
+}
+,
 mounted(){
    this.getHomeInfo()
+  this.lastCity=this.city
+},
+activated(){/* 有keep-alive才出现的什生命周期,keep-alive在app组件 */
+ if(this.lastCity !== this.city){
+  this.lastCity = this.city
+  this.getHomeInfo()
+ }
 }
 }
 </script>
