@@ -4,6 +4,7 @@
             <swiper :options="swiperOptions">
                 <swiper-slide v-for=" (item,index) in imgs " :key="index">
                     <img :src='item' alt="" class="img">
+                    <button class="back" @click="back">❌</button>
                 </swiper-slide>
                 <div class="swiper-pagination" slot="pagination"></div>
             </swiper>
@@ -36,6 +37,10 @@ export default {
    methods:{
     handleGallery(){
       this.$parent.showGallery=false
+      console.log(  this.$parent.showGallery);
+    },
+    back(){
+        window.history.go(-1)
     }
    },
    mounted(){
@@ -59,6 +64,7 @@ export default {
     background-color: #000;
 }
 .wrapper {
+    position: relative;
     overflow: hidden;
     background-color: aliceblue;
     width: 100%;
@@ -71,5 +77,11 @@ export default {
 .swiper-pagination{
     color: aliceblue;
 }
+.back{
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: transparent;
 
+}
 </style>

@@ -12,15 +12,18 @@
             </div>
         </div>
     </div>
+    <FadeVue>  
     <CommonGallery :showGallery="showGallery" :imgs="gallaryImgs"></CommonGallery>
+    </FadeVue>
    </div>
 </template>
 
 <script>
 import CommonGallery from '../../../common/gallery/gallery.vue'
+import FadeVue from '@/common/Fade/Fade.vue'
 export default {
     name: 'v-banner',
-    components:{CommonGallery},
+    components:{CommonGallery,FadeVue},
     props:{sightName:String,bannerImg:String,gallaryImgs:Array},
     data(){
       return {
