@@ -124,7 +124,10 @@ methods:{
 },
 mounted(){
   window.addEventListener('scroll', this.handleScroll)
-}
+},
+ deactivated(){//当组件切换时调用,并且这两个生命周期函数是keep-alive提供的,在App组件中有使用
+  window.removeEventListener('scroll',this.handleScroll)
+ }
 }
 </script>
 
