@@ -1,12 +1,13 @@
 <template>
   <div >
-    <banner></banner>
+    <banner :sightName="sightName" :bannerImg="bannerImg" :gallaryImgs="gallaryImgs"></banner>
     <headerVue></headerVue>
-    <List :list="list"></List>
+    <List :list="list" class="content"></List>
   </div>
 </template>
 
 <script>
+import axios from 'axios'
 import banner from './components/banner.vue'
 import headerVue from './components/Headers.vue'
 import List from './components/list.vue'
@@ -15,39 +16,38 @@ name:'V-detail',
 components:{banner,headerVue,List},
 data(){
     return{
-        list:[
-            {title:'成人票',
-             children:[{
-              title:'成人三馆联票',
-              children:[{
-                title:"已售空"
-              }]
-             }]
-          },
-            {title:'学生票'},
-            {title:'儿童票'},
-            {title:'特惠票'},
-            {title:'学生票'},
-            {title:'儿童票'},
-            {title:'特惠票'},
-            {title:'学生票'},
-            {title:'儿童票'},
-            {title:'特惠票'},
-            {title:'学生票'},
-            {title:'儿童票'},
-            {title:'特惠票'},
-            {title:'学生票'},
-            {title:'儿童票'},
-            {title:'特惠票'},
-            {title:'学生票'},
-            {title:'儿童票'},
-            {title:'特惠票'},
-        ]
+        sightName: '',
+        bannerImg: '',
+        gallaryImgs: [],
+        list:[]
     }
+},
+methods:{
+  getDetailInfo(){
+     axios.get('static/mock/detail.json',{
+      params:{
+        id:this.$route.params.id
+      }
+     })
+     .then(res=>{
+      console.log(res.data);
+      const data = res.data.data
+        this.sightName = data.sightName
+        this.bannerImg = data.bannerImg
+        this.gallaryImgs = data.gallaryImgs
+        this.list = data.categoryList
+     })
+  }
+},
+mounted(){
+  this.getDetailInfo()
 }
 }
 </script>
 
-<style>
+<style scoped>
+.content{
+  height: 50rem
+}
 
 </style>

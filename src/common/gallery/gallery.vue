@@ -15,7 +15,13 @@
 export default {
     name: 'v-gallery',
     props:{
-        showGallery:Boolean
+        showGallery:Boolean,
+     imgs: {
+      type: Array,
+      default () {
+        return []
+      }
+    }
     },
    data(){
     return{
@@ -24,14 +30,16 @@ export default {
         paginationType: 'fraction',
         observeParents: true,
         observer: true
-    },
-    imgs:['//imgs.qunarzz.com/p/p15/1809/19/494898a39defb102.jpg_256x160_cc948293.jpg','//imgs.qunarzz.com/p/p15/1809/19/494898a39defb102.jpg_256x160_cc948293.jpg']
     }
-   },
+   }
+},
    methods:{
     handleGallery(){
       this.$parent.showGallery=false
     }
+   },
+   mounted(){
+     console.log(this.imgs);
    }
 }
 </script>

@@ -1,18 +1,18 @@
 <template>
    <div>
     <div class="baner" @click="handleBannerChange">
-        <img  class='baner-img' src="//img1.qunarzz.com/sight/p0/2211/6e/6e7bb7875e998fa4a3.water.jpg_256x160_63c02743.jpg" alt="">
+        <img  class='baner-img' :src="bannerImg" alt="">
         <div class="banner-info">
             <div class="banner-title">
-                1
+                {{ sightName }}
             </div>
             <div class="banner-number">
                 <span class="iconfont  banner-icon">&#xe8b9;</span>
-                123
+                {{ sightName.length }}
             </div>
         </div>
     </div>
-    <CommonGallery :showGallery="showGallery"></CommonGallery>
+    <CommonGallery :showGallery="showGallery" :imgs="gallaryImgs"></CommonGallery>
    </div>
 </template>
 
@@ -21,6 +21,7 @@ import CommonGallery from '../../../common/gallery/gallery.vue'
 export default {
     name: 'v-banner',
     components:{CommonGallery},
+    props:{sightName:String,bannerImg:String,gallaryImgs:Array},
     data(){
       return {
         showGallery:false

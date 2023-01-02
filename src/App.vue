@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <keep-alive><!-- 标签的意义在于,优先加载缓存 -->
+    <keep-alive exclude="V-detail"><!-- 标签的意义在于,优先加载缓存 ,exclude不包括detail页面-->
     <router-view/>
     </keep-alive>
   </div>
