@@ -7,90 +7,6 @@
     <span>城市选择</span>
     <div class="iconfont header-back " @click="back">&#xe660;</div>
   </div>
-  <p>1</p>
-  <p>1</p>
-  <p>1</p>
-  <p>1</p>
-  <p>1</p>
-  <p>1</p>
-  <p>1</p>
-  <p>1</p>
-  <p>1</p>
-  <p>1</p>
-  <p>1</p>
-  <p>1</p>
-  <p>1</p>
-  <p>1</p>
-  <p>1</p>
-  <p>1</p>
-  <p>1</p>
-  <p>1</p>
-  <p>1</p>
-  <p>1</p>
-  <p>1</p>
-  <p>1</p>
-  <p>1</p>
-  <p>1</p>
-  <p>1</p>
-  <p>1</p>
-  <p>1</p>
-  <p>1</p>
-  <p>1</p>
-  <p>1</p>
-  <p>1</p>
-  <p>1</p>
-  <p>1</p>
-  <p>1</p>
-  <p>1</p>
-  <p>1</p>
-  <p>1</p>
-  <p>1</p>
-  <p>1</p>
-  <p>1</p>
-  <p>1</p>
-  <p>1</p>
-  <p>1</p>
-  <p>1</p>
-  <p>1</p>
-  <p>1</p>
-  <p>1</p>
-  <p>1</p>
-  <p>1</p>
-  <p>1</p>
-  <p>1</p>
-  <p>1</p>
-  <p>1</p>
-  <p>1</p>
-  <p>1</p>
-  <p>1</p>
-  <p>1</p>
-  <p>1</p>
-  <p>1</p>
-  <p>1</p>
-  <p>1</p>
-  <p>1</p>
-  <p>1</p>
-  <p>1</p>
-  <p>1</p>
-  <p>1</p>
-  <p>1</p>
-  <p>1</p>
-  <p>1</p>
-  <p>1</p>
-  <p>1</p>
-  <p>1</p>
-  <p>1</p>
-  <p>1</p>
-  <p>1</p>
-  <p>1</p>
-  <p>1</p>
-  <p>1</p>
-  <p>1</p>
-  <p>1</p>
-  <p>1</p>
-  <p>1</p>
-  <p>1</p>
-  <p>1</p>
   </div>
 </template>
 
@@ -100,7 +16,7 @@ name:'v-header',
 data(){
   return{
     showAbs:true,
-        opacity: 0
+        opacity: 0.5
  
   }
 },
@@ -153,6 +69,7 @@ mounted(){
     top: 0;
     left: 0;
     right: 0;
+    z-index: 2;
     overflow: hidden;
     border: 1px solid; 
     text-align: center;
