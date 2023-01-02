@@ -50,12 +50,12 @@ export default {
     bottom: 0;
     background-color: #000;
 }
-
 .wrapper {
+    overflow: hidden;
     background-color: aliceblue;
     width: 100%;
-    /* padding-bottom: 100%; */
-    /* height: 0; */
+     /* padding-bottom: 100%;
+    height: 0 */
 }
 .img{
     width: 100%;
